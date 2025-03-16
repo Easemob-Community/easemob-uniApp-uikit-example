@@ -1,0 +1,17 @@
+{
+  "name": "easemob-uniapp-uikit-example",
+  "version": "1.0.0",
+  "description": "基于 UniApp Vue3 的即时通讯解决方案，集成 [ChatUIKit](https://github.com/easemob/easemob-uikit-uniapp) 实现聊天功能。",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "easemob-websdk": "^4.11.0",
+    "mobx": "^6.13.4",
+    "pinyin-pro": "^3.26.0"
+  }
+}
