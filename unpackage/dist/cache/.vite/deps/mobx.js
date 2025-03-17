@@ -1,6 +1,6 @@
 import "./chunk-Y2F7D3TJ.js";
 
-// ../../../../../../Users/hfp/Desktop/commonUseDemo/easemob-uniApp-uikit-example/node_modules/mobx/dist/mobx.esm.js
+// ../../../../../../Users/easemob/Desktop/workNeed/example/easemob-uniApp-uikit-example/node_modules/mobx/dist/mobx.esm.js
 var niceErrors = {
   0: "Invalid value for configuration 'enforceActions', expected 'never', 'always' or 'observed'",
   1: function _(annotationType, key) {

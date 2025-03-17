@@ -1,6 +1,6 @@
 import "./chunk-Y2F7D3TJ.js";
 
-// ../../../../../../Users/hfp/Desktop/commonUseDemo/easemob-uniApp-uikit-example/node_modules/pinyin-pro/dist/index.mjs
+// ../../../../../../Users/easemob/Desktop/workNeed/example/easemob-uniApp-uikit-example/node_modules/pinyin-pro/dist/index.mjs
 var DoubleUnicodePrefixReg = /^[\uD800-\uDBFF]$/;
 var DoubleUnicodeSuffixReg = /^[\uDC00-\uDFFF]$/;
 var DoubleUnicodeReg = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g;

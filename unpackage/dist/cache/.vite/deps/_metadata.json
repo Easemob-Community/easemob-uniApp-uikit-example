@@ -1,31 +1,31 @@
 {
-  "hash": "e8041bd6",
-  "configHash": "b4694b7f",
+  "hash": "f5e31aad",
+  "configHash": "480efd30",
   "lockfileHash": "7d671338",
-  "browserHash": "b7824587",
+  "browserHash": "a230aaff",
   "optimized": {
-    "easemob-websdk/uniApp/Easemob-chat": {
-      "src": "../../../../../node_modules/easemob-websdk/uniApp/Easemob-chat.js",
-      "file": "easemob-websdk_uniApp_Easemob-chat.js",
-      "fileHash": "4ba47119",
-      "needsInterop": true
-    },
     "easemob-websdk/Easemob-chat": {
       "src": "../../../../../node_modules/easemob-websdk/Easemob-chat.js",
       "file": "easemob-websdk_Easemob-chat.js",
-      "fileHash": "58f862ca",
+      "fileHash": "ad07d3d7",
+      "needsInterop": true
+    },
+    "easemob-websdk/uniApp/Easemob-chat": {
+      "src": "../../../../../node_modules/easemob-websdk/uniApp/Easemob-chat.js",
+      "file": "easemob-websdk_uniApp_Easemob-chat.js",
+      "fileHash": "0f216005",
       "needsInterop": true
     },
     "mobx": {
       "src": "../../../../../node_modules/mobx/dist/mobx.esm.js",
       "file": "mobx.js",
-      "fileHash": "2b6d6b3c",
+      "fileHash": "c632e391",
       "needsInterop": false
     },
     "pinyin-pro": {
       "src": "../../../../../node_modules/pinyin-pro/dist/index.mjs",
       "file": "pinyin-pro.js",
-      "fileHash": "aff04257",
+      "fileHash": "b2b5376a",
       "needsInterop": false
     }
   },

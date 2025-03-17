@@ -2,9 +2,9 @@ import {
   __commonJS
 } from "./chunk-Y2F7D3TJ.js";
 
-// ../../../../../../Users/hfp/Desktop/commonUseDemo/easemob-uniApp-uikit-example/node_modules/easemob-websdk/Easemob-chat.js
+// ../../../../../../Users/easemob/Desktop/workNeed/example/easemob-uniApp-uikit-example/node_modules/easemob-websdk/Easemob-chat.js
 var require_Easemob_chat = __commonJS({
-  "../../../../../../Users/hfp/Desktop/commonUseDemo/easemob-uniApp-uikit-example/node_modules/easemob-websdk/Easemob-chat.js"(exports, module) {
+  "../../../../../../Users/easemob/Desktop/workNeed/example/easemob-uniApp-uikit-example/node_modules/easemob-websdk/Easemob-chat.js"(exports, module) {
     !function(e, t) {
       "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define([], t) : "object" == typeof exports ? exports.websdk = t() : e.websdk = t();
     }(self, function() {

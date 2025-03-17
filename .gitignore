@@ -1,0 +1,28 @@
+# IDE相关
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 依赖目录
+node_modules/
+unpackage/dist/
+
+# 环境配置
+.env
+.env.*
+*.env
+
+# 构建产物
+/dist/
+/build/
+/unpackage/dist/
+
+# 缓存文件
+.hbuilder/
+.hbuilderx.lock
+
+
