@@ -10,17 +10,16 @@
 
 <script setup>
 const login = () => {
-  console.log('>>>>调用登录', uni.$UIKit);
+  console.log(">>>>调用登录", uni.$UIKit);
   uni.$UIKit.chatStore
     .login({
-      user: 'hfp', // 用户 ID
-      accessToken:
-        'YWMtIg8RmAJKEfCf1kdVXi5Dqw1mN7fFQUJHtJstEOESXXmL9dUAWVkR77XfC6ZH8GNUAwMAAAGVnk_VwTeeSAAtx3O-C7bP5c6AACrCF3KpNdLeTmY32Yej_Y7GjIIPhw', // 用户 Token
+      user: "YOUR USER ID", // 用户 ID
+      accessToken: "YOUR USER TOKEN", // 用户 Token
     })
     .then(() => {
       // 登录成功后，跳转会话列表页面
       uni.navigateTo({
-        url: '/ChatUIKit/modules/Conversation/index',
+        url: "/ChatUIKit/modules/Conversation/index",
       });
     });
 };

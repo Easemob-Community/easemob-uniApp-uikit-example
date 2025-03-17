@@ -5,7 +5,7 @@ import { EasemobChatStatic } from "easemob-websdk/Easemob-chat";
 
 // 创建 IM 实例
 const chat = new (websdk as unknown as EasemobChatStatic).connection({
-  appKey: "easemob-demo#support", // 应用的 App Key
+  appKey: "YOUR APPKEY", // 应用的 App Key
   isHttpDNS: false,
   url: "wss://im-api-wechat.easemob.com/websocket", // 环信 websocket URL
   apiUrl: "https://a1.easemob.com", // 环信 Restful API URL
