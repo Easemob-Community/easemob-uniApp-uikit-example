@@ -28,7 +28,7 @@ git clone https://github.com/easemob/easemob-uikit-uniapp.git
 download zip
 ```
 
-### 3. 复现核心代码
+### 3. 复制 UIKit 核心代码
 
 > 复制`easemob-uikit-uniapp`项目源码中的`ChatUIKit`目录下的所有文件到你的项目中，推荐与诸如`pages`、`static`、`main.js`等文件平级。
 
@@ -43,7 +43,7 @@ npm init -y
 第二步：安装依赖：
 
 ```bash
-npm i easemob-websdk@4.11.0 pinyin-pro@3.26.0 mobx@6.13.4 --save
+npm i easemob-websdk@latest pinyin-pro@3.26.0 mobx@6.13.4 --save
 ```
 
 ### 5. 运行项目
@@ -59,9 +59,9 @@ npm i easemob-websdk@4.11.0 pinyin-pro@3.26.0 mobx@6.13.4 --save
 - EasemobChatStatic 环信核心 im 库的类型定义。（非必须，TS 环境下使用所需）
 
 ```js
-import { ChatUIKit } from './ChatUIKit';
-import websdk from 'easemob-websdk/uniApp/Easemob-chat';
-import { EasemobChatStatic } from 'easemob-websdk/Easemob-chat';
+import { ChatUIKit } from "./ChatUIKit";
+import websdk from "easemob-websdk/uniApp/Easemob-chat";
+import { EasemobChatStatic } from "easemob-websdk/Easemob-chat";
 ```
 
 第二步：在`App.vue`中的 import 引入下，写下如下代码：
@@ -105,14 +105,14 @@ uni.$UIKit = ChatUIKit;
 当然你也可以直接不用 ts，直接使用 js 的形式，那么你的初始化代码应该是这样的：
 
 ```js
-import { ChatUIKit } from './ChatUIKit';
-import websdk from 'easemob-websdk/uniApp/Easemob-chat';
+import { ChatUIKit } from "./ChatUIKit";
+import websdk from "easemob-websdk/uniApp/Easemob-chat";
 // 创建 IM 实例
 const chat = new websdk.connection({
-  appKey: '', // 应用的 App Key
+  appKey: "", // 应用的 App Key
   isHttpDNS: false,
-  url: '', // 环信 websocket URL
-  apiUrl: '', // 环信 Restful API URL
+  url: "", // 环信 websocket URL
+  apiUrl: "", // 环信 Restful API URL
   delivery: true, // 是否开启消息已送达回执
 });
 ```
@@ -164,13 +164,13 @@ const chat = new (websdk as unknown as EasemobChatStatic).connection({
 const login = () => {
   uni.$UIKit.chatStore
     .login({
-      user: '', // 用户 ID
-      accessToken: '', // 用户 Token
+      user: "", // 用户 ID
+      accessToken: "", // 用户 Token
     })
     .then(() => {
       // 登录成功后，跳转会话列表页面
       uni.navigateTo({
-        url: '/ChatUIKit/modules/Conversation/index',
+        url: "/ChatUIKit/modules/Conversation/index",
       });
     });
 };
@@ -269,3 +269,76 @@ const login = () => {
 
 > 该示例中会话页面的好友是本身已经发起过会话所产生的，如你新建项目没有好友，可手动至控制台操作给该好友发个消息。刷新页面即可产生一个 admin 的会话。
 > <img src="./preview/iShot_2025-03-16_18.13.06.png" />
+
+## 常见问题
+
+### 1. 为什么我在登录成功后，跳转会话列表页面，却没有跳转成功？
+
+> 这是因为你没有配置路由，你需要在`pages.json`中配置路由。
+
+### 2.登录成功后未能获取对应的会话列表？
+
+1. 会话列表未开启，默认新建 appKey 后，会话列表是不开启的。
+
+- 开启方法：
+  - 登录环信控制台，进入应用管理，找到你创建的应用，点击进入。
+  - 进入应用后，点击左侧菜单栏中的`即时通讯/功能配置/功能配置总览`，进入`功能名称`搜索框中搜索“会话”，点击查询。
+  - 你会看到`服务端会话列表`点击操作即可进行功能开通。
+
+2. 你没有给该用户发送过消息，所以会话列表中没有该用户的会话。
+
+- 建立会话方法：
+  - 你可以在控制台中，给该用户发送一条消息，即可建立会话。
+  - 你也可以新打开一个 Tab 页面或应用，登录另一个用户给该用户发送一条消息。
+
+### 3. 会话或联系人列表，未显示昵称头像,应该如何展示昵称头像？
+
+> 在该 UIKIT 中，默认在登录的时候会通过获取联系人列表批量获取用户属性，从而拿到用户的昵称和头像。因此会话或者联系人页面的昵称头像展示有个前提条件，就是你需要在前端或者服务端注册用户时，有设置该账号的用户属性，否则会展示默认的 userId 和默认占位头像。由此衍生出如下问题：
+
+#### 如何设置用户属性？
+
+> - 在前端设置用户属性：
+
+```js
+const client = uni.$UIKit.getChatConn();
+const option = {
+  nickname: "测试头像设置",
+  avatarurl: "https://avatarurl/....",
+};
+client.updateUserInfo(option).then((res) => {
+  console.log(res);
+  //更新UIKit中的用户信息
+  uni.$UIKit.appUserStore.setUserInfo("userId", {
+    ...option,
+  });
+});
+```
+
+> - 在服务端设置用户属性：
+>   - 参考文档：[设置用户属性](https://doc.easemob.com/document/server-side/userprofile.html#%E8%AE%BE%E7%BD%AE%E7%94%A8%E6%88%B7%E5%B1%9E%E6%80%A7)
+
+#### 如何不依赖用户属性自己定义展示昵称头像？
+
+> 如果你不想依赖 UIKit 内置的调用用户属性接口从而展示昵称头像，那么你可以通过在实例化 UIkit 后，调用如下代码进行自定义：
+
+```js
+// 隐藏用户信息展示
+uni.$UIKit.hideFeature(["useUserInfo"]);
+// 设置自定义用户属性
+uni.$UIKit.appUserStore.setUserInfo("userId", {
+  nickname: "张三",
+  avatarurl: "user avatar url",
+});
+```
+
+#### 如果遇到群组相关如何设置群头像？
+
+> 群头像的设置和用户头像的设置类似，只需要在群聊会话中，调用如下代码即可：
+
+```js
+// 设置群聊会话的群头像
+uni.$UIKit.appUserStore.setGroupAvatar("groupId", "group avatar url");
+```
+
+详细的实现代码可参考 UIKIT 中的 demo 示例代码：
+[参考地址](https://github.com/easemob/easemob-uikit-uniapp/blob/main/demo/App.vue#L45)
